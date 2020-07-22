@@ -4,3 +4,6 @@ bases:
 
 patchesStrategicMerge:
   - deployment-patch.yaml
+
+commonLabels:
+  app: my-app
