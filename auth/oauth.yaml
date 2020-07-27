@@ -1,0 +1,29 @@
+apiVersion: config.openshift.io/v1
+kind: OAuth
+metadata:
+  name: cluster
+spec:
+  identityProviders:
+  - htpasswd:
+      fileData:
+        name: htpasswd-td9kt
+    mappingMethod: claim
+    name: htpasswd
+    type: HTPasswd
+  - name: keycloak
+    mappingMethod: claim
+    type: OpenID
+    openID:
+      issuer: https://sso.lukeelten.de/auth/realms/ocp-aws
+      clientID: openshift
+      clientSecret:
+        name: keycloak-client-secret
+      ca:
+        name: keycloak-ca
+      claims:
+        preferredUsername:
+        - preferred_username
+        name:
+        - name
+        email:
+        - email

@@ -1,0 +1,4 @@
+resources:
+- cert.yaml
+- client-secret.enc.yaml
+- oauth.yaml
